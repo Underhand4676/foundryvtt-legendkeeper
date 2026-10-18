@@ -1,8 +1,8 @@
 {
   "id": "foundryvtt-legendkeeper",
-  "title": "LegendKeeper Integration",
+  "title": "LegendKeeper Bridge Module",
   "description": "GM-only live LegendKeeper browser with automatic reconnection and native player-readable Foundry Journal publishing. Uses a self-hosted bridge.",
-  "version": "0.2.0",
+  "version": "0.0.1",
   "authors": [
     {
       "name": "Community Contributors"

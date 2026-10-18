@@ -1,7 +1,7 @@
 # Portainer > Stacks > Add stack > Web editor. Set the three variables below.
 services:
   legendkeeper-bridge:
-    image: ghcr.io/YOUR_GITHUB_USERNAME/foundryvtt-legendkeeper-bridge:0.2.0
+    image: ghcr.io/YOUR_GITHUB_USERNAME/foundryvtt-legendkeeper-bridge:0.0.1
     container_name: legendkeeper-bridge
     restart: unless-stopped
     environment:

@@ -21,4 +21,4 @@ for (const [alias, entry] of Object.entries(config)) {
 const server = http.createServer(createHandler({ projects, allowedOrigins }));
 server.requestTimeout = 25000;
 server.headersTimeout = 10000;
-server.listen(port, '0.0.0.0', () => console.log(`LegendKeeper bridge v0.2.0 listening on ${port} (${projects.size} project(s))`));
+server.listen(port, '0.0.0.0', () => console.log(`LegendKeeper bridge v0.0.1 listening on ${port} (${projects.size} project(s))`));

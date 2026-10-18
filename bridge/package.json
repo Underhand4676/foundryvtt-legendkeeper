@@ -2,7 +2,7 @@
   "name": "foundryvtt-legendkeeper-bridge",
   "private": true,
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.0.1",
   "engines": {
     "node": ">=20"
   },
@@ -12,6 +12,6 @@
     "test": "node --test ../tests/*.test.mjs"
   },
   "dependencies": {
-    "@legendkeeper/sdk": "*"
+    "@legendkeeper/sdk": "1.0.0"
   }
 }
