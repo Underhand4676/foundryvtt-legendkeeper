@@ -1,0 +1,59 @@
+<section class="lk-browser">
+  <header class="lk-toolbar">
+    <span class="lk-project"><i class="fa-solid fa-book-open"></i> {{projectName}}</span>
+    {{#if connected}}
+    <span class="lk-toolbar-buttons">
+      <button type="button" data-lk-control="refresh" title="Refresh articles"><i class="fa-solid fa-arrows-rotate"></i> Refresh</button>
+      {{#if configuring}}<button type="button" data-lk-control="browse">Back to Browser</button>{{else}}<button type="button" data-lk-control="configure"><i class="fa-solid fa-gear"></i> Configure</button>{{/if}}
+      <button type="button" data-lk-control="disconnect" title="Forget this browser's saved connection">Forget Connection</button>
+    </span>
+    {{/if}}
+  </header>
+  {{#if error}}<p class="lk-error" role="alert">{{error}}</p>{{/if}}
+  {{#if showConnectionForm}}
+    <section class="lk-connection">
+      <h2>{{#if connected}}Reconfigure connection{{else}}Connect LegendKeeper{{/if}}</h2>
+      <p>Configure once, or change projects whenever you need. The connection is reused automatically on this GM browser. Players need no setup.</p>
+      <label for="lk-bridge-url">Bridge HTTPS address</label>
+      <input id="lk-bridge-url" type="url" value="{{configuredBridgeUrl}}" autocomplete="off" placeholder="https://lkbridge.example.com">
+      <label for="lk-project-alias">Project alias</label>
+      <input id="lk-project-alias" type="text" value="{{configuredProjectAlias}}" autocomplete="off" placeholder="rakva">
+      <label for="lk-bridge-token">Project bridge token</label>
+      <input id="lk-bridge-token" type="password" autocomplete="off" placeholder="Leave blank to reuse a saved credential for this project">
+      <button type="button" data-lk-control="connect">Test, Save & Connect</button>
+      <p class="lk-connection-note">The token is stored in this browser's local Foundry client settings, never in world settings. Use a private, trusted GM browser profile.</p>
+    </section>
+  {{else}}
+    <section class="lk-columns">
+      <nav class="lk-navigation" aria-label="LegendKeeper entries">
+        <form class="lk-search"><input name="query" type="search" value="{{query}}" placeholder="Search LegendKeeper" aria-label="Search LegendKeeper"><button type="submit">Search</button></form>
+        {{#if query}}<button type="button" data-lk-control="clear-search" class="lk-clear">Show full tree</button>{{/if}}
+        <div class="lk-tree">
+          {{#each entries}}
+            <button type="button" class="lk-entry" data-resource-id="{{id}}" style="padding-left: {{padding}}px" title="{{name}}">{{name}}{{#if hidden}} <i class="fa-solid fa-eye-slash" title="Hidden in LegendKeeper"></i>{{/if}}</button>
+          {{else}}
+            <p class="lk-placeholder">No matching entries.</p>
+          {{/each}}
+        </div>
+      </nav>
+      <article class="lk-article">
+        {{#if selectedName}}
+          <div class="lk-article-header">
+            <h2>{{selectedName}}</h2>
+            {{#if publishable}}
+              <button type="button" data-lk-control="publish" title="Share a snapshot in Foundry Journals"><i class="fa-solid fa-share-nodes"></i> Publish to Players</button>
+            {{/if}}
+          </div>
+          {{#if documents.length}}
+            <div class="lk-tabs">
+              {{#each documents}}<button type="button" data-document-id="{{id}}" data-resource-id="{{../selectedId}}" class="{{#if active}}active{{/if}}">{{name}}{{#if isHidden}} <i class="fa-solid fa-eye-slash"></i>{{/if}}</button>{{/each}}
+            </div>
+          {{/if}}
+          {{#if unsupported}}<p>Map and board rendering are planned for a later version.</p>{{else}}<div class="lk-content">{{contentText}}</div>{{/if}}
+        {{else}}
+          <p class="lk-placeholder">Select an entry to open its live content.</p>
+        {{/if}}
+      </article>
+    </section>
+  {{/if}}
+</section>

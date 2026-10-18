@@ -1,0 +1,25 @@
+.legendkeeper-app .window-content { padding: 0; }
+.lk-browser { display:flex; flex-direction:column; height:100%; min-height:380px; color:var(--color-text-primary, inherit); }
+.lk-toolbar { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border-bottom:1px solid var(--color-border-dark, #777); }
+.lk-project { font-weight:700; font-size:1.1rem; }
+.lk-columns { display:grid; grid-template-columns:minmax(220px,32%) minmax(0,1fr); min-height:0; flex:1; }
+.lk-navigation { min-height:0; overflow:auto; border-right:1px solid var(--color-border-dark, #777); }
+.lk-search { position:sticky; top:0; display:flex; gap:4px; padding:10px; background:var(--color-cool-5, #292929); z-index:1; }
+.lk-search input { min-width:0; flex:1; }
+.lk-search button { flex:0 0 auto; }
+.lk-tree { padding:4px; }
+.lk-entry { display:block; width:100%; text-align:left; border:0; border-radius:3px; background:transparent; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.lk-entry:hover, .lk-entry:focus-visible { background:var(--color-cool-4, #474747); }
+.lk-article { overflow:auto; padding:18px; min-width:0; }
+.lk-article h2 { margin:0 0 12px; }
+.lk-tabs { display:flex; flex-wrap:wrap; gap:6px; border-bottom:1px solid var(--color-border-dark, #777); padding-bottom:8px; margin-bottom:16px; }
+.lk-tabs button.active { font-weight:700; box-shadow:inset 0 -2px currentColor; }
+.lk-content { white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.55; }
+.lk-connection { max-width:520px; padding:24px; display:grid; gap:10px; }
+.lk-connection button { justify-self:start; }
+.lk-error { margin:8px 12px; color:#f69f9f; }
+.lk-placeholder { opacity:.7; padding:12px; }
+.lk-connection h2 { margin:0; }
+.lk-connection-note { font-size:.82rem; opacity:.75; }
+.lk-article-header { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; }
+.lk-article-header button { flex:0 0 auto; }

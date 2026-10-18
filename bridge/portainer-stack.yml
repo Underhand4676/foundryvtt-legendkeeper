@@ -1,0 +1,21 @@
+# Portainer > Stacks > Add stack > Web editor. Set the three variables below.
+services:
+  legendkeeper-bridge:
+    image: ghcr.io/YOUR_GITHUB_USERNAME/foundryvtt-legendkeeper-bridge:0.2.0
+    container_name: legendkeeper-bridge
+    restart: unless-stopped
+    environment:
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+      LK_PROJECTS_JSON: ${LK_PROJECTS_JSON}
+      PORT: '8787'
+    ports:
+      - '8787:8787'
+    read_only: true
+    tmpfs:
+      - /tmp:rw,nosuid,noexec,size=16m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 80
+    mem_limit: 256m
